@@ -7,7 +7,7 @@
       //return new MazeModel(name);
       MazeModelBuilder builder = new MazeModelBuilder();
       MazeReader reader = new MazeReader(builder);
-      MazeReader.Read();
+      reader.Read(name);
       return builder.Build();
     }
   }

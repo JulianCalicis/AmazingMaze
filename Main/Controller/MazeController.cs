@@ -10,8 +10,7 @@ namespace Main.Controller
 
     public MazeController()
     {
-      //Model = MazeFactory.MazeCreate("The Amazing Maze");
-      Model = new M.MazeModel("The Amazing Maze");
+      Model = M.MazeFactory.MazeCreate("test");
       View = new V.MazeView();
     }
 

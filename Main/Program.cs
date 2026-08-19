@@ -8,6 +8,7 @@ namespace Main
     {
       MazeController controller = new MazeController();
       controller.Start();
+      Console.WriteLine(controller.Model);
     }
   }
 }
