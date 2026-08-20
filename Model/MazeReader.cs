@@ -23,38 +23,37 @@ namespace Model
         for (int character = 0, row = 0, col = 0; character < text.Length; character++, col++)
         {
           //Skipping spaces, newlines and carriage returns CRLF
-          switch (text[character])
-          {
-            case '\n':
-              row++;
-              col = -1;
-              break;
+          if (text[character] >= 'A' && text[character] <= 'Z')
+            _builder.AddPlayer(row, col, text[character]);
+          else
+            switch (text[character])
+            {
+              case '\n':
+                row++;
+                col = -1;
+                break;
+              case '\r':
+              case ' ':
+                break;
 
-            case ' ':
-              break;
+              case (char)MazeSymbol.Wall:
+                _builder.AddWall(row, col);
+                break;
 
-            case (char)MazeSymbol.Wall:
-              _builder.AddWall(row, col);
-              break;
+              case (char)MazeSymbol.Room:
+                _builder.AddRoom(row, col);
+                break;
 
-            case (char)MazeSymbol.Room:
-              _builder.AddRoom(row, col);
-              break;
+              case (char)MazeSymbol.ClosedDoor:
+                _builder.AddDoor(row, col);
+                break;
 
-            case (char)MazeSymbol.Character:
-              _builder.AddPlayer(row, col);
-              break;
+              case (char)MazeSymbol.Key:
+                _builder.AddKey(row, col);
+                break;
 
-            case (char)MazeSymbol.ClosedDoor:
-              _builder.AddDoor(row, col);
-              break;
-
-            case (char)MazeSymbol.Key:
-              _builder.AddKey(row, col);
-              break;
-
-            default: throw new Exception("Invalid Character");
-          }
+              default: throw new Exception("Invalid Character");
+            }
         }
 
         _builder.Finish();

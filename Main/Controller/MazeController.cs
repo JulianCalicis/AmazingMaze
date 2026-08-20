@@ -12,14 +12,14 @@ namespace Main.Controller
 
     public MazeController()
     {
-      Model = MazeFactory.MazeCreate("test");
+      Model = MazeFactory.MazeCreate("bigmode");
       View = new V.MazeView();
     }
 
     public void Start()
     {
       //View.Display(Model, "Je suis amazing");
-      for (int i = 0; i < 10; i++)
+      for (int i = 0; i < 99; i++)
       {
         Console.WriteLine(Model);
         Console.Write("Choisissez une direction (W-N-E-S): ");

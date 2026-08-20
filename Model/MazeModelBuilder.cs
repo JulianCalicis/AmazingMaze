@@ -27,11 +27,11 @@ namespace Model
       _model[new(row, column)] = new Wall();
     }
 
-    public void AddPlayer(int row, int column)
+    public void AddPlayer(int row, int column, char representation)
     {
       MazePosition position = new(row, column);
       _model[position] = new Room();
-      _model[position] = new Character(position);
+      _model[position] = new Character(position, representation);
     }
 
     public void AddDoor(int row, int column)

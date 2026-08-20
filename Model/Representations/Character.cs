@@ -7,14 +7,17 @@ namespace Model.Representations
   /// </summary>
   public class Character : IPlaceable
   {
-    public MazeSymbol Representation { get; } = MazeSymbol.Character;
+    private char _representation;
+
+    public MazeSymbol Representation { get => (MazeSymbol)_representation; private init => _representation = (char)value; }
     public MazePosition? Position { get; set; }
     public Inventory Bag { get; }
 
-    public Character(MazePosition position)
+    public Character(MazePosition position, char representation = 'O')
     {
       Position = position;
       Bag = new Inventory();
+      _representation = representation;
     }
   }
 }

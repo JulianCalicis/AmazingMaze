@@ -32,7 +32,7 @@
     /// </summary>
     /// <param name="row">The row index.</param>
     /// <param name="column">The column index.</param>
-    void AddPlayer(int row, int column);
+    void AddPlayer(int row, int column, char representation);
 
     /// <summary>
     /// Add a closed door at the designated <paramref name="row"/> and <paramref name="column"/>.
