@@ -20,26 +20,19 @@ namespace Model
         using StreamReader reader = new StreamReader($"{mazeName}.maze");
         string text = reader.ReadToEnd();
         Debug.WriteLine(text);
-        int row = 0, col = 0;
-        for (int character = 0; character < text.Length; character++, col++)
+        for (int character = 0, row = 0, col = 0; character < text.Length; character++, col++)
         {
           //Skipping spaces, newlines and carriage returns CRLF
-          while (text[character] == '\n' || text[character] == ' ')
-          {
-            if (text[character] == ' ')
-            {
-              character++;
-              col++;
-            }
-            else if (text[character] == '\n')
-            {
-              character++;
-              row++;
-              col = 0;
-            }
-          }
           switch (text[character])
           {
+            case '\n':
+              row++;
+              col = -1;
+              break;
+
+            case ' ':
+              break;
+
             case (char)MazeSymbol.Wall:
               _builder.AddWall(row, col);
               break;
