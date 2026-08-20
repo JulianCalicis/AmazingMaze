@@ -6,6 +6,8 @@
     Wall = '*',
     Room = '.',
     Character = 'O',
+    ClosedDoor = '|',
+    OpenedDoor = '_',
     Key = 'f'
   }
 }

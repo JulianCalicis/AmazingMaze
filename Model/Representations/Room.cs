@@ -7,7 +7,7 @@ namespace Model.Representations
   /// </summary>
   public class Room : IDisplayable
   {
-    public MazeSymbol Representation
+    public virtual MazeSymbol Representation
     {
       get
       {
@@ -28,10 +28,10 @@ namespace Model.Representations
       Content = content;
     }
 
-    public void Visite(Character character)
+    public virtual void Visite(Character character)
     {
       if (Content is Key key)
-    {
+      {
         character.Bag.Add(key);
         Content = null;
       }

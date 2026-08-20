@@ -44,9 +44,16 @@ namespace Model
             case (char)MazeSymbol.Character:
               _builder.AddPlayer(row, col);
               break;
+
+            case (char)MazeSymbol.ClosedDoor:
+              _builder.AddDoor(row, col);
+              break;
+
             case (char)MazeSymbol.Key:
               _builder.AddKey(row, col);
               break;
+
+            default: throw new Exception("Invalid Character");
           }
         }
 

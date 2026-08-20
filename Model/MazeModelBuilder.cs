@@ -34,6 +34,11 @@ namespace Model
       _model[position] = new Character(position);
     }
 
+    public void AddDoor(int row, int column)
+    {
+      _model[new(row, column)] = new Door();
+    }
+
     public void AddKey(int row, int column)
     {
       MazePosition position = new(row, column);
