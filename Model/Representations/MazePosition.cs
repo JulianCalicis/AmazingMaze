@@ -15,6 +15,30 @@
     public int Row { get; }
     public int Column { get; }
 
+    public MazePosition this[MovementDirection direction]
+    {
+      get
+      {
+        switch (direction)
+        {
+          case MovementDirection.West:
+            return new MazePosition(Row, Column - 1);
+
+          case MovementDirection.North:
+            return new MazePosition(Row - 1, Column);
+
+          case MovementDirection.East:
+            return new MazePosition(Row, Column + 1);
+
+          case MovementDirection.South:
+            return new MazePosition(Row + 1, Column);
+
+          default:
+            throw new ArgumentOutOfRangeException();
+        }
+      }
+    }
+
     public int CompareTo(MazePosition? other)
     {
       if (Row > other.Row) return 1;
