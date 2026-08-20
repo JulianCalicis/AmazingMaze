@@ -15,18 +15,17 @@
     public void AddRoom(int row, int column)
     {
       //TODO: Vérifier si c'est pas déjà créé
-      _model[new(row, column)] = MazeElement.Room;
+      _model[new(row, column)] = new Room();
     }
 
     public void AddWall(int row, int column)
     {
       //TODO: Vérifier si c'est pas déjà créé
-      _model[new(row, column)] = MazeElement.Wall;
+      _model[new(row, column)] = new Wall();
     }
 
     public void Finish()
     {
-      throw new NotImplementedException();
     }
 
     public MazeModel Build()

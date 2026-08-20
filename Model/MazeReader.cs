@@ -40,11 +40,11 @@ namespace Model
           }
           switch (text[character])
           {
-            case (char)MazeElement.Wall:
+            case (char)MazeSymbol.Wall:
               _builder.AddWall(row, col);
               break;
 
-            case (char)MazeElement.Room:
+            case (char)MazeSymbol.Room:
               _builder.AddRoom(row, col);
               break;
           }

@@ -5,30 +5,20 @@ namespace Model
   /// <summary>
   /// Represents a maze.
   /// </summary>
-  public class MazeModel : IEnumerable<MazeElement>
+  public class MazeModel : IEnumerable<IDisplayable>
   {
-    private SortedDictionary<MazePosition, MazeElement> _grid;
+    #region Fields
+
+    private SortedDictionary<MazePosition, IDisplayable> _grid;
+
+    #endregion Fields
+
+    #region Properties
 
     /// <summary>
     /// Name of the maze.
     /// </summary>
     public string Name { get; private init; }
-
-    public MazeModel(string name)
-    {
-      _grid = new SortedDictionary<MazePosition, MazeElement>();
-      Name = name;
-    }
-
-    public IEnumerator<MazeElement> GetEnumerator()
-    {
-      return _grid.Values.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-      return GetEnumerator();
-    }
 
     /// <summary>
     /// Indexer that allows direct grid access using a <see cref="MazePosition"/>
@@ -36,10 +26,32 @@ namespace Model
     /// <param name="position"></param>
     /// <returns></returns>
 
-    public MazeElement this[MazePosition position]
+    public IDisplayable this[MazePosition position]
     {
       get { return _grid[position]; }
       set { _grid[position] = value; }
+    }
+
+    #endregion Properties
+
+    #region Constructors
+
+    public MazeModel(string name)
+    {
+      _grid = new SortedDictionary<MazePosition, IDisplayable>();
+      Name = name;
+    }
+
+    #endregion Constructors
+
+    public IEnumerator<IDisplayable> GetEnumerator()
+    {
+      return _grid.Values.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return GetEnumerator();
     }
 
     /// <summary>
@@ -68,15 +80,10 @@ namespace Model
           result += ' ';
           previousColumn++;
         }
-        result += (char)test.Value;
+        result += (char)test.Value.Representation;
         previousColumn++;
       }
       return result;
     }
-  }
-
-  public enum MazeElement
-  {
-    Wall = '*', Room = '.'
   }
 }
