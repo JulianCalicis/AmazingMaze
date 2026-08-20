@@ -27,5 +27,10 @@ namespace Model
     {
       Content = content;
     }
+
+    public void Visite(Character character)
+    {
+      Content = character;
+    }
   }
 }

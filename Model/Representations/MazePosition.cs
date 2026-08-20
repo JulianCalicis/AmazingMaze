@@ -15,10 +15,12 @@
     public int Row { get; }
     public int Column { get; }
 
-    public MazePosition this[MovementDirection direction]
+    public MazePosition? this[MovementDirection direction]
     {
       get
       {
+        if (this == null)
+          return null;
         switch (direction)
         {
           case MovementDirection.West:

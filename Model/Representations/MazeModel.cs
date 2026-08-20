@@ -8,13 +8,10 @@ namespace Model
   /// </summary>
   public class MazeModel : IEnumerable<IDisplayable>
 
-
   {
     #region Fields
 
-
     private SortedDictionary<MazePosition, IDisplayable> _grid;
-
 
     #endregion Fields
 
@@ -52,13 +49,11 @@ namespace Model
           if (_grid[position] is not Room room)
             throw new Exception("Cannot place character in this tile");
           if (room.Content != null)
-            throw new Exception("The room is already occupied.");
+            throw new Exception("The newRoom is already occupied.");
 
           Player = new Character(position);
           room.Content = Player;
         }
-
-
         else
           _grid[position] = value;
       }
@@ -68,7 +63,6 @@ namespace Model
 
     #region Constructors
 
-
     public MazeModel(string name)
     {
       _grid = new SortedDictionary<MazePosition, IDisplayable>();
@@ -76,6 +70,17 @@ namespace Model
     }
 
     #endregion Constructors
+
+    public void Move(MovementDirection direction)
+    {
+      if (Player == null) throw new Exception("Le personnage n'existe pas");
+      MazePosition NewPos = (Player.Position?[direction]) ?? throw new Exception("Le personnage est sorti du labyrinthe");
+      if (this[NewPos] is not Room newRoom) throw new Exception("Le personnage essaie d'aller dans autre chose qu'une pièce");
+
+      ((Room)this[Player.Position]).Content = null;
+      newRoom.Visite(Player);
+      Player.Position = NewPos;
+    }
 
     public IEnumerator<IDisplayable> GetEnumerator()
     {

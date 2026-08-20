@@ -1,4 +1,7 @@
-﻿using M = Model;
+﻿using Model;
+
+using M = Model;
+
 using V = Main.View;
 
 namespace Main.Controller
@@ -16,7 +19,20 @@ namespace Main.Controller
 
     public void Start()
     {
-      View.Display(Model, "Je suis amazing");
+      //View.Display(Model, "Je suis amazing");
+      for (int i = 0; i < 5; i++)
+      {
+        Console.WriteLine(Model);
+        Console.Write("Choisissez une direction (W-N-E-S): ");
+        var test = Console.ReadLine()?.ToUpper()[0];
+        MovementDirection direction = MovementDirection.North;
+        if (test == 'W') direction = MovementDirection.West;
+        if (test == 'N') direction = MovementDirection.North;
+        if (test == 'E') direction = MovementDirection.East;
+        if (test == 'S') direction = MovementDirection.South;
+        Model.Move(direction);
+        Console.Clear();
+      }
     }
   }
 }
