@@ -35,6 +35,13 @@
     void AddPlayer(int row, int column);
 
     /// <summary>
+    /// Add a key at the designated <paramref name="row"/> and <paramref name="column"/>.
+    /// </summary>
+    /// <param name="row">The row index.</param>
+    /// <param name="column">The column index.</param>
+    void AddKey(int row, int column);
+
+    /// <summary>
     /// End the creation of the maze.
     /// </summary>
     void Finish();

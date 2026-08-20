@@ -42,17 +42,20 @@ namespace Model.Representations
       get { return _grid[position]; }
       set
       {
-        if (value.GetType() == typeof(Character))
+        if (value is IPlaceable valuePlaceable)
         {
-          if (Player != null)
-            throw new Exception("Player already exists");
           if (_grid[position] is not Room room)
-            throw new Exception("Cannot place character in this tile");
+            throw new Exception("Cannot place something in this tile");
           if (room.Content != null)
             throw new Exception("The newRoom is already occupied.");
+          if (value is Character valueCharacter)
+          {
+            if (Player != null)
+              throw new Exception("Player already exists");
 
-          Player = new Character(position);
-          room.Content = Player;
+            Player = valueCharacter;
+          }
+          room.Content = valuePlaceable;
         }
         else
           _grid[position] = value;

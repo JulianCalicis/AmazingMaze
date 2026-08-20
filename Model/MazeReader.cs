@@ -44,6 +44,9 @@ namespace Model
             case (char)MazeSymbol.Character:
               _builder.AddPlayer(row, col);
               break;
+            case (char)MazeSymbol.Key:
+              _builder.AddKey(row, col);
+              break;
           }
         }
 

@@ -30,6 +30,11 @@ namespace Model.Representations
 
     public void Visite(Character character)
     {
+      if (Content is Key key)
+    {
+        character.Bag.Add(key);
+        Content = null;
+      }
       Content = character;
     }
   }

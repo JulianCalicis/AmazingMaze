@@ -5,6 +5,7 @@
   {
     Wall = '*',
     Room = '.',
-    Character = 'O'
+    Character = 'O',
+    Key = 'f'
   }
 }

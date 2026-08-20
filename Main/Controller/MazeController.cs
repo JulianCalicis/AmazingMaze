@@ -19,7 +19,7 @@ namespace Main.Controller
     public void Start()
     {
       //View.Display(Model, "Je suis amazing");
-      for (int i = 0; i < 5; i++)
+      for (int i = 0; i < 10; i++)
       {
         Console.WriteLine(Model);
         Console.Write("Choisissez une direction (W-N-E-S): ");
