@@ -40,6 +40,10 @@ namespace Model
             case (char)MazeSymbol.Room:
               _builder.AddRoom(row, col);
               break;
+
+            case (char)MazeSymbol.Character:
+              _builder.AddPlayer(row, col);
+              break;
           }
         }
 

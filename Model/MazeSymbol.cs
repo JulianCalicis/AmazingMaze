@@ -4,6 +4,7 @@
   public enum MazeSymbol
   {
     Wall = '*',
-    Room = '.'
+    Room = '.',
+    Character = 'O'
   }
 }

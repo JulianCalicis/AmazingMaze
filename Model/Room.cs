@@ -7,11 +7,23 @@
   {
     public MazeSymbol Representation
     {
-      get { return MazeSymbol.Room; }
+      get
+      {
+        if (Content != null)
+          return Content.Representation;
+        return MazeSymbol.Room;
+      }
     }
+
+    public IPlaceable? Content { get; set; }
 
     public Room()
     {
+    }
+
+    public Room(IPlaceable content)
+    {
+      Content = content;
     }
   }
 }

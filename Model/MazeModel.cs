@@ -21,6 +21,15 @@ namespace Model
     public string Name { get; private init; }
 
     /// <summary>
+    /// Represents the player character of the maze.
+    /// </summary>
+    /// <remarks>
+    /// Impossible de mettre la propriété en lecture seule si elle doit être initialisée par autre chose que le
+    /// constructeur, dans ce cas, elle doit être initialisée par le setter de l'indexeur
+    /// </remarks>
+    public Character Player { get; private set; }
+
+    /// <summary>
     /// Indexer that allows direct grid access using a <see cref="MazePosition"/>
     /// </summary>
     /// <param name="position"></param>
@@ -29,7 +38,23 @@ namespace Model
     public IDisplayable this[MazePosition position]
     {
       get { return _grid[position]; }
-      set { _grid[position] = value; }
+      set
+      {
+        if (value.GetType() == typeof(Character))
+        {
+          if (Player != null)
+            throw new Exception("Player already exists");
+          if (_grid[position] is not Room room)
+            throw new Exception("Cannot place character in this tile");
+          if (room.Content != null)
+            throw new Exception("The room is already occupied.");
+
+          Player = new Character(position);
+          room.Content = Player;
+        }
+        else
+          _grid[position] = value;
+      }
     }
 
     #endregion Properties

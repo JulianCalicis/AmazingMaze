@@ -24,6 +24,13 @@
       _model[new(row, column)] = new Wall();
     }
 
+    public void AddPlayer(int row, int column)
+    {
+      MazePosition position = new(row, column);
+      _model[position] = new Room();
+      _model[position] = new Character(position);
+    }
+
     public void Finish()
     {
     }
