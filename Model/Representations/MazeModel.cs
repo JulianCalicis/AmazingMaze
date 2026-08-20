@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Model.Interfaces;
+using System.Collections;
 
 namespace Model
 {
@@ -6,10 +7,14 @@ namespace Model
   /// Represents a maze.
   /// </summary>
   public class MazeModel : IEnumerable<IDisplayable>
+
+
   {
     #region Fields
 
+
     private SortedDictionary<MazePosition, IDisplayable> _grid;
+
 
     #endregion Fields
 
@@ -52,6 +57,8 @@ namespace Model
           Player = new Character(position);
           room.Content = Player;
         }
+
+
         else
           _grid[position] = value;
       }
@@ -60,6 +67,7 @@ namespace Model
     #endregion Properties
 
     #region Constructors
+
 
     public MazeModel(string name)
     {

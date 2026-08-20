@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace Model.Interfaces
 {
   /// <summary>
   /// Represents elements that can be placed in Rooms

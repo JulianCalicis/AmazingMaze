@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace Model.Interfaces
 {
   /// <summary>
   /// Interface that forces implementers to have its actions

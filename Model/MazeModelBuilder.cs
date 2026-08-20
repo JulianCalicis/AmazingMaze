@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using Model.Interfaces;
+
+namespace Model
 {
   public class MazeModelBuilder : IMazeBuilder
   {
