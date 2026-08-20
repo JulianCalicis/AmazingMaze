@@ -1,10 +1,10 @@
-﻿using M = Model;
+﻿using Model.Representations;
 
 namespace Main.View
 {
   internal class MazeView
   {
-    public void Display(M.MazeModel model, string message)
+    public void Display(MazeModel model, string message)
     {
       Console.WriteLine($"{model.Name}: {message}");
     }

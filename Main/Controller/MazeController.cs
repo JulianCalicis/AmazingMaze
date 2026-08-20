@@ -1,6 +1,5 @@
 ﻿using Model;
-
-using M = Model;
+using Model.Representations;
 
 using V = Main.View;
 
@@ -8,12 +7,12 @@ namespace Main.Controller
 {
   internal class MazeController
   {
-    public M.MazeModel Model { get; set; }
+    public MazeModel Model { get; set; }
     public V.MazeView View { get; set; }
 
     public MazeController()
     {
-      Model = M.MazeFactory.MazeCreate("test");
+      Model = MazeFactory.MazeCreate("test");
       View = new V.MazeView();
     }
 

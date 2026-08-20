@@ -1,7 +1,7 @@
 ﻿using Model.Interfaces;
 using System.Collections;
 
-namespace Model
+namespace Model.Representations
 {
   /// <summary>
   /// Represents a maze.

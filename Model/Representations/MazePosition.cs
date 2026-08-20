@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace Model.Representations
 {
   /// <summary>
   /// Represents a Position of the maze, using Row and Column indexes

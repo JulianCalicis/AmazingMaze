@@ -1,6 +1,6 @@
 ﻿using Model.Interfaces;
 
-namespace Model
+namespace Model.Representations
 {
   /// <summary>
   /// Represents a maze Playable character.

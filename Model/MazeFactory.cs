@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using Model.Representations;
+
+namespace Model
 {
   public static class MazeFactory
   {

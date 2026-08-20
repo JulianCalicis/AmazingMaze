@@ -1,4 +1,5 @@
 ﻿using Model.Interfaces;
+using Model.Representations;
 
 namespace Model
 {
